@@ -1,336 +1,217 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAYMENT ZHANOFFICIAL 🦅</title>
-  <style>
-    :root {
-      --bg-dark: #0e0e2c;
-      --bg-light: #f5f5f5;
-      --card-dark: #111b3b;
-      --card-light: #ffffff;
-      --text-dark: #ffffff;
-      --text-light: #111;
-      --accent: #00ffc3;
-      --Telegram: #25D366;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYMENT ZHANOFFICIAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #050505;
+            --glass: rgba(0, 242, 255, 0.05);
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    body.light {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
+        /* Cyber Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--glass) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--glass) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            animation: moveGrid 10s linear infinite;
+        }
 
-    .container {
-      padding: 20px;
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
-    }
+        @keyframes moveGrid {
+            from { background-position: 0 0; }
+            to { background-position: 0 30px; }
+        }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        .container {
+            width: 90%;
+            max-width: 450px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue), inset 0 0 10px rgba(0, 242, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
 
-    .card {
-      background-color: var(--card-dark);
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-      text-align: center;
-      max-width: 360px;
-      border: 1px solid var(--accent);
-    }
+        .logo-admin {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
 
-    body.light .card {
-      background-color: var(--card-light);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 25px;
+        }
 
-    .top-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .payment-methods, .contact-admin {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
 
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      object-fit: cover;
-    }
+        .btn {
+            padding: 12px;
+            border: 1px solid var(--neon-blue);
+            background: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    select {
-      background-color: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 10px;
-      padding: 5px 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+        .btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-blue);
+        }
 
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
+        .btn-tele { border-color: #0088cc; }
+        .btn-tele:hover { background: #0088cc; box-shadow: 0 0 20px #0088cc; }
 
-    .theme-toggle input {
-      width: 50px;
-      height: 26px;
-      -webkit-appearance: none;
-      background: #444;
-      outline: none;
-      border-radius: 20px;
-      position: relative;
-      cursor: pointer;
-    }
+        .btn-wa { border-color: #25d366; }
+        .btn-wa:hover { background: #25d366; box-shadow: 0 0 20px #25d366; }
 
-    .theme-toggle input:checked {
-      background: var(--accent);
-    }
+        .note-box {
+            font-size: 0.8rem;
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 3px solid #ff0000;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.4;
+        }
 
-    .theme-toggle input::before {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      top: 3px;
-      left: 3px;
-      background: white;
-      transition: 0.3s;
-    }
+        /* Modal Popup for QRIS/Info */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .theme-toggle input:checked::before {
-      transform: translateX(24px);
-    }
+        .modal-content {
+            background: #111;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid var(--neon-blue);
+            max-width: 100%;
+            text-align: center;
+        }
 
-    h1 {
-      font-size: 22px;
-      margin: 15px 0 25px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pay-btn {
-      background: transparent;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-      padding: 10px 15px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .pay-btn:hover {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .info-box {
-      font-size: 14px;
-      margin-bottom: 20px;
-      min-height: 60px;
-    }
-
-    .qris-img {
-      width: 160px;
-      margin-top: 10px;
-      border-radius: 10px;
-      border: 2px solid var(--accent);
-    }
-
-    .note {
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .highlight {
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    .Telegram-button {
-      background: var(--Telegram);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      transition: background 0.3s ease;
-    }
-
-    .Telegram-button:hover {
-      background: #1ebe5d;
-    }
-
-    .copy-btn, .download-btn {
-      margin-top: 10px;
-      background-color: var(--accent);
-      color: #000;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .copy-btn:hover, .download-btn:hover {
-      background-color: #00d3aa;
-    }
-  </style>
+        .modal img { width: 100%; border-radius: 10px; }
+        .close-btn { margin-top: 15px; color: var(--neon-blue); cursor: pointer; display: block; }
+    </style>
 </head>
 <body>
-  <div class="theme-toggle">
-    <input type="checkbox" id="themeSwitch" onchange="toggleTheme()" />
-  </div>
 
-  <div class="container">
-    <div class="card">
-      <div class="top-section">
-        <img src="https://files.catbox.moe/qeybb1.jpg" class="avatar" alt="ZhanOfficial" />
-        <select id="language" onchange="setLanguage()">
-          <option value="id">🇮🇩 Indonesia</option>
-          <option value="en">🇬🇧 English</option>
-        </select>
-      </div>
+    <div class="grid-bg"></div>
 
-      <h1 id="title">Payment <span class="highlight">𝐙𝐡𝐚𝐧 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</span></h1>
+    <div class="container">
+        <img src="https://files.catbox.moe/muzanj.jpg" alt="Logo Admin" class="logo-admin">
+        <h1>PAYMENT ZHANOFFICIAL</h1>
 
-      <div class="buttons">
-        <button class="pay-btn" onclick="showInfo('dana')">DANA</button>
-        <button class="pay-btn" onclick="showInfo('gopay')">GoPay</button>
-        <button class="pay-btn" onclick="showInfo('qris')">QRIS</button>
-      </div>
+        <div class="payment-methods">
+            <button class="btn" onclick="showModal('qris')">VIA QRIS (ALL PAY)</button>
+            <button class="btn" onclick="showPayInfo('DANA', '0882008170684')">VIA DANA</button>
+            <button class="btn" onclick="showPayInfo('GOPAY', '083838202776')">VIA GOPAY</button>
+        </div>
 
-      <div id="payment-info" class="info-box">
-        <p id="select-text">Pilih metode pembayaran di atas.</p>
-      </div>
+        <hr style="border: 0.5px solid var(--glass); margin: 20px 0;">
 
-      <p class="note" id="note-text">
-        Setelah transfer, mohon kirimkan bukti pembayaran ke <span class="highlight">𝐙𝐡𝐚𝐧 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</span> melalui Telegram.
-      </p>
+        <div class="contact-admin">
+            <a href="https://wa.me/62882008170684" class="btn btn-wa">WHATSAPP ADMIN</a>
+            <a href="https://t.me/zhan_store" class="btn btn-tele">TELEGRAM ADMIN</a>
+        </div>
 
-      <a href="https://t.me/zhan_store" class="Telegram-button" id="wa-button">Hubungi Telegram</a>
+        <div class="note-box">
+            🚫 𝑁𝑜𝑡𝑒 : 𝐻𝑎𝑟𝑎𝑝 𝑠𝑐𝑟𝑒𝑛𝑠ℎ𝑜𝑡 𝐵𝑢𝑘𝑡𝑖 𝑇𝑟𝑎𝑛𝑠𝑓𝑒𝑟/𝑇𝑟𝑎𝑛𝑠𝑎𝑘𝑠𝑖 𝐴𝑔𝑎𝑟 𝐿𝑒𝑏𝑖ℎ 𝐸𝑓𝑒𝑠𝑖𝑒𝑛 𝑈𝑛𝑡𝑢𝑘 𝑚𝑒𝑛𝑔𝑘𝑜𝑛𝑓𝑖𝑟𝑚𝑎𝑠𝑖 𝐾𝑒𝑚𝑎𝑠𝑢𝑘𝑎𝑛 𝑆𝑎𝑙𝑑𝑜 ✅
+        </div>
     </div>
-  </div>
 
-  <script>
-    const languageData = {
-      id: {
-        select: "Pilih metode pembayaran di atas.",
-        dana: "DANA:<br>083838202776<br>A/N Irfan xxxx xxxx",
-        gopay: "GoPay:<br>083838202776<br>A/n Irfan xxxx xxxx",
-        copy: "Salin Nomor",
-        copied: "Disalin!",
-        note: "Setelah transfer, mohon kirimkan bukti pembayaran ke",
-        wa: "Hubungi Telegram",
-        download: "Unduh QRIS"
-      },
-      en: {
-        select: "Select a payment method above.",
-        dana: "DANA:<br>083838202776<br>Acc: Irfan xxxx xxx",
-        gopay: "GoPay:<br>083838202776<br>Acc: Irfan xxxx xxxx",
-        copy: "Copy Number",
-        copied: "Copied!",
-        note: "After transferring, please send the proof of payment to",
-        wa: "Contact Telegram",
-        download: "Download QRIS"
-      }
-    };
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="margin-bottom: 15px; color: var(--neon-blue);"></h2>
+            <div id="modalBody"></div>
+            <span class="close-btn" onclick="closeModal()">[ CLOSE ]</span>
+        </div>
+    </div>
 
-    let currentLang = "id";
-    const qrisUrl = "https://files.catbox.moe/1y13ij.jpg";
+    <script>
+        function showModal(type) {
+            const modal = document.getElementById('paymentModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
 
-    function showInfo(method) {
-      const infoBox = document.getElementById("payment-info");
-      let content = "";
+            if(type === 'qris') {
+                title.innerText = 'SCAN QRIS';
+                body.innerHTML = '<img src="https://files.catbox.moe/iaemcg.jpg" alt="QRIS">';
+            }
+            modal.style.display = 'flex';
+        }
 
-      if (method === "dana") {
-        content = `
-          <p><strong>${languageData[currentLang].dana}</strong></p>
-          <button class="copy-btn" onclick="copyText('083838202776')">${languageData[currentLang].copy}</button>
-        `;
-      } else if (method === "gopay") {
-        content = `
-          <p><strong>${languageData[currentLang].gopay}</strong></p>
-          <button class="copy-btn" onclick="copyText('083838202776')">${languageData[currentLang].copy}</button>
-        `;
-      } else if (method === "qris") {
-        content = `
-          <p><strong>QRIS:</strong><br>
-          <img src="${qrisUrl}" alt="QRIS" class="qris-img" /><br>
-          <a href="${qrisUrl}" download="qris-epinhost.jpg">
-            <button class="download-btn">${languageData[currentLang].download}</button>
-          </a>
-          </p>
-        `;
-      }
+        function showPayInfo(method, num) {
+            const modal = document.getElementById('paymentModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
 
-      infoBox.innerHTML = content;
-    }
+            title.innerText = method + ' INFO';
+            body.innerHTML = `<p style="font-size: 1.5rem; letter-spacing: 2px;">${num}</p><p style="margin-top:10px">Silahkan salin nomor di atas</p>`;
+            modal.style.display = 'flex';
+        }
 
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const buttons = document.querySelectorAll('.copy-btn');
-        buttons.forEach(btn => btn.innerText = languageData[currentLang].copied);
-        setTimeout(() => {
-          buttons.forEach(btn => btn.innerText = languageData[currentLang].copy);
-        }, 1500);
-      });
-    }
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
 
-    function setLanguage() {
-      currentLang = document.getElementById("language").value;
-      document.getElementById("select-text").innerText = languageData[currentLang].select;
-      document.getElementById("note-text").innerHTML =
-        `${languageData[currentLang].note} <span class="highlight">𝐙𝐡𝐚𝐧 𝐎𝐟𝐟𝐢𝐜𝐢𝐚𝐥</span> melalui Telegram.`;
-      document.getElementById("wa-button").innerText = languageData[currentLang].wa;
-      document.getElementById("payment-info").innerHTML = `<p id="select-text">${languageData[currentLang].select}</p>`;
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-    }
-
-    // Start animation
-    window.onload = () => {
-      document.querySelector(".container").style.opacity = "1";
-    };
-  </script>
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('paymentModal')) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
